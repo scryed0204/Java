@@ -2,7 +2,7 @@ package Searches;
 
 import java.util.Arrays;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.IntStream;
 
 import static java.lang.String.format;
@@ -77,7 +77,8 @@ class BinarySearch implements SearchAlgorithm {
         int size = 100;
         int maxElement = 100000;
         
-        int[] integers = IntStream.generate(() -> r.nextInt(maxElement)).limit(size).sorted().toArray();
+        Integer[] integers = Arrays.stream(IntStream.generate(() -> r.nextInt(maxElement)).limit(size).sorted().toArray()).boxed().toArray(Integer[]::new);
+        		;
 
         // The element that should be found
         int shouldBeFound = integers[r.nextInt(size - 1)];
